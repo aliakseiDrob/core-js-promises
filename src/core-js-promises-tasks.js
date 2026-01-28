@@ -111,8 +111,8 @@ function getAllOrNothing(promises) {
  * [Promise.resolve(1), Promise.reject(2), Promise.resolve(3)]  => Promise fulfilled with [1, null, 3]
  */
 async function getAllResult(promises) {
-  const resultArray = await Promise.allSettled(promises);
-  return [...resultArray].map((result) => {
+  const result = await Promise.allSettled(promises);
+  return [...result].map((result) => {
     return result.value || null;
   });
 }
